@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block rightside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock rightside %}
+
+{% block leftside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock leftside %}
+
+{% block middleside %}
+{% if workers %}
+<h3 class="text-center">Çalışanlar</h3>
+<hr>
+<ul class="list-group">
+    {% for w in workers %}
+    <div class="list-group">
+    <a href="/employee/{{w.id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+    
+    <h5 class="mb-1">{{w.role}}</h5>
+    
+
+    
+    </div>
+    <p class="mb-1">{{w.name}}</p>
+    <small class="text-muted">{{w.email}}</small>
+    </a>
+    
+    {% endfor %}
+  </ul>
+{% else %}
+<div class="alert alert-danger">Çalışan bulunamadı.</div>
+
+{% endif %}
+{% endblock middleside %}

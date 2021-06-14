@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block rightside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock rightside %}
+
+{% block leftside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock leftside %}
+
+
+{% block middleside %}
+{% from "includes/formhelpers.html" import render_field %}
+{% if get_current_user_role() == "Muhasebe" and bill.accheck %}
+<hr>
+<img style='display:block; width:1100px;height:1200px;'src="data:image/png;charset=utf-8;base64,{{img}}" >
+<hr>
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Açıklama :</th>
+      <th scope="col">{{bill.description}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Yükleyen Kişi :</th>
+      <td>{{bill.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Fatura İçeriği :</th>
+      <td>{{bill.billcontent}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yükleyen Departman :</th>
+      <td>{{bill.role}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yüklenen Zaman :</th>
+      <td>{{bill.create_date}}</td>
+    </tr>
+    <form method = "POST">
+    <tr>
+      <th scope="row">Onay :</th>
+      <td>
+      Fatura Muhasebe Tarafından Onaylandı!</td>
+    </tr>
+    </form>
+  </tbody>
+</table>
+<hr>
+{% elif get_current_user_role() == "Yönetici" and not bill.accheck %}
+
+{% elif get_current_user_role() == "Yönetici" and bill.managercheck %}
+<hr>
+<img style='display:block; width:1000px;height:1000px;'src="data:image/png;charset=utf-8;base64,{{img}}" >
+<hr>
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Açıklama :</th>
+      <th scope="col">{{bill.description}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Yükleyen Kişi :</th>
+      <td>{{bill.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Fatura İçeriği :</th>
+      <td>{{bill.billcontent}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yükleyen Departman :</th>
+      <td>{{bill.role}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yüklenen Zaman :</th>
+      <td>{{bill.create_date}}</td>
+    </tr>
+    <form method = "POST">
+    <tr>
+      <th scope="row">Onay :</th>
+      <td>
+      Fatura Yönetici Tarafından Onaylandı!</td>
+    </tr>
+    </form>
+  </tbody>
+</table>
+<hr>
+{% else %}
+<hr>
+<img style='display:block; width:1100px;height:1200px;'src="data:image/png;charset=utf-8;base64,{{img}}" >
+<hr>
+
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Açıklama :</th>
+      <th scope="col">{{bill.description}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Yükleyen Kişi :</th>
+      <td>{{bill.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Fatura İçeriği :</th>
+      <td>{{bill.billcontent}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yükleyen Departman :</th>
+      <td>{{bill.role}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yüklenen Zaman :</th>
+      <td>{{bill.create_date}}</td>
+    </tr>
+    <form method = "POST">
+    <tr>
+      <th scope="row">Onay :</th>
+      <td>
+      {% if get_current_user_role() == "Yönetici" %}
+      {{ render_field(form.managercheck,class = "form-control") }}
+      <button type="submit" class="btn btn-danger">Onayla</button></td>
+      
+      {% else %}
+      {{ render_field(form.accheck,class = "form-control") }}
+      <button type="submit" class="btn btn-danger">Onayla</button></td>
+      
+      {% endif %}
+    </tr>
+    </form>
+  </tbody>
+</table>
+<hr>
+{% endif %}
+
+{% endblock middleside %}
+

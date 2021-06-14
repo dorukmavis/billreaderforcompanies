@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block rightside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock rightside %}
+
+{% block leftside %}
+<div
+  class="col-md-16 bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock leftside %}
+
+
+{% block middleside %}
+
+
+
+<body>
+    <div class="container main-secction">
+        <div class="row">
+            
+            <div class="row user-left-part">
+                <div class="col-md-4 col-sm-3 col-xs-12 user-profil-part pull-left">
+                    <div class="row ">
+                        <div class="col-md-3 col-md-12-sm-12 col-xs-12 user-image text-center">
+                            <img style='display:block; width:240px;height:240px;' src="data:image/png;charset=utf-8;base64,{{rimg}}"  class="rounded-circle">
+                            <form method = "POST" enctype="multipart/form-data">
+                                <input type="file" name="pic"/>
+                                <br> <br>
+                                <button type="submit" class="btn btn-danger">Fotoğraf Ekle</button>
+                            </form>
+                        </div>
+                        <br>
+                        <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
+                            <br>
+                            <br>
+                                                          
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-9 col-xs-12 pull-right profile-right-section">
+                    <div class="row profile-right-section-row">
+                        <div class="col-md-12 profile-header">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
+                                    <h1>{{profil.name}}</h1>
+                                    <h5>{{profil.role}}</h5>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-8">
+                                        <hr>
+                                              
+                                              <!-- Tab panes -->
+                                              <div class="tab-content">
+                                                <div role="tabpanel" class="tab-pane fade show active" id="profile">
+                                                        <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label>İsim Soyisim :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{profil.name}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label>Kullanıcı Adı :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{profil.username}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label>Email :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{profil.email}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label>Departman :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{profil.role}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label>Şirket :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{profil.company}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label>Telefon Numarası :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{profil.phonenumber}}</p>
+                                                                </div>
+                                                            </div>
+                                                </div>
+                                                
+                                                
+                                              
+                          
+                                
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock middleside %}

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded ">
+  <a class="navbar-brand" href="/">MAVIS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Anasayfa</a>
+      </li>
+      
+      
+      
+    </ul>
+        <ul class="navbar-nav ml-auto">
+        {% if session["logged_in"] %}
+        <li class="nav-item active">
+        <a class="nav-link" href="/logout">Çıkış Yap</a>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{session["username"]}}
+        </a>
+        <div class="dropdown-menu bg-dark rounded " aria-labelledby="navbarDropdownMenuLink">
+        {% if get_current_user_role() == "Admin" %}
+        <a class="dropdown-item text-white" href="/profile">Profil</a>
+        <a class="dropdown-item text-white" href="/godregister">Çalışan Ekle</a>
+        {% elif get_current_user_role() == "Yönetici" %}
+        <a class="dropdown-item text-white" href="/profile">Profil</a>
+        <a class="dropdown-item text-white" href="/addbill">Fatura Ekle</a>
+        <a class="dropdown-item text-white" href="/bills">Faturalar</a>
+        <a class="dropdown-item text-white" href="/billsummary">Onaylanmış Faturalar</a>
+        <a class="dropdown-item text-white" href="/employees">Çalışanlar</a>
+        <a class="dropdown-item text-white" href="/adminregister">Çalışan Ekle</a>
+        {% elif get_current_user_role() == "Muhasebe" %}
+        <a class="dropdown-item text-white" href="/profile">Profil</a>
+        <a class="dropdown-item text-white" href="/addbill">Fatura Ekle</a>
+        <a class="dropdown-item text-white" href="/bills">Faturalar</a>
+        <a class="dropdown-item text-white" href="/billsummary">Onaylanmış Faturalar</a>
+        {% elif get_current_user_role() == "İnsan Kaynakları"%}
+        <a class="dropdown-item text-white" href="/profile">Profil</a>
+        <a class="dropdown-item text-white" href="/addbill">Fatura Ekle</a>
+        <a class="dropdown-item text-white" href="/adminregister">Çalışan Ekle</a>
+        <a class="dropdown-item text-white" href="/employees">Çalışanlar</a>
+        {% else %}
+        <a class="dropdown-item text-white" href="/profile">Profil</a>
+        <a class="dropdown-item text-white" href="/addbill">Fatura Ekle</a>
+        {% endif %}
+          
+          
+          
+          
+          
+        
+        </div>
+      </li>
+        {% else %}
+        <li class="nav-item active">
+        <a class="nav-link" href="/login">Giriş Yap</a>
+      </li>
+        {% endif %}
+        
+        
+      
+        </ul>
+  </div>
+</nav>

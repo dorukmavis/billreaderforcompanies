@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+
+{% block middleside %}
+{% from "includes/formhelpers.html" import render_field %}
+<form method = "POST" enctype="multipart/form-data">
+
+{{ render_field(form.billcontent,class = "form-control") }}
+<input type="file" name="pic"/>
+<button type="submit">Upload Bill</button>
+
+</form>
+{% endblock middleside %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block rightside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock rightside %}
+
+{% block leftside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock leftside %}
+
+{% block middleside %}
+
+
+
+<h3 class ="text-center" style="padding: 20px">Giriş Yapınız</h3>
+<hr>
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method = "POST">
+
+
+    {{ render_field(form.username,class = "form-control") }}
+
+    {{ render_field(form.password,class = "form-control") }}
+    <br><br><br>
+    <button type="submit" class="btn btn-danger" style="float : right;">Giriş Yap </button>
+</form>
+    
+
+
+
+
+{% endblock middleside %}

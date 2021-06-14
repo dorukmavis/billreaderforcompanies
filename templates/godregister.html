@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block rightside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock rightside %}
+
+{% block leftside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock leftside %}
+
+{% block middleside %}
+{% from "includes/formhelpers.html" import render_field %}
+<h3>Kayıt </h3>
+<hr>
+<form method = "POST" enctype="multipart/form-data">
+
+    {{ render_field(form.name,class = "form-control") }}
+    {{ render_field(form.username,class = "form-control") }}
+    {{ render_field(form.email,class = "form-control") }}
+    {{ render_field(form.phonenumber,class = "form-control") }}
+    {{ render_field(form.role,class = "form-control") }}
+    {{ render_field(form.company,class = "form-control") }}
+    {{ render_field(form.password,class = "form-control") }}
+    {{ render_field(form.confirm,class = "form-control") }}
+    <h5>Çalışan Fotoğrafı (isteğe bağlıdır.) :</h5><input type="file" name="pic"/>
+    <br> <br>
+    <button type="submit" class="btn btn-danger">Çalışan Ekle</button>
+</form>
+ <hr>
+{% endblock middleside %}

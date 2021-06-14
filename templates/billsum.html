@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block middleside %}
+{% from "includes/formhelpers.html" import render_field %}
+<hr>
+<table class="table table-light">
+  <tbody>
+    <tr>
+      <th scope="row">Yükleyen Kişi :</th>
+      <td>{{dbill.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Zaman :</th>
+      <td>{{dbill.create_date}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yükleyen Departman :</th>
+      <td>{{dbill.role}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Fatura Nedeni :</th>
+      <td>{{dbill.description}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Fatura İçeriği :</th>
+      <td>{{dbill.billcontent}}</td>
+    </tr>
+    <form method = "POST">
+    <tr>
+      <th scope="row"><button type="submit" class="btn btn-danger">Yazdır!</button></th>
+    </tr>
+    </form>
+  </tbody>
+</table>
+<hr>
+
+
+{% endblock middleside %}

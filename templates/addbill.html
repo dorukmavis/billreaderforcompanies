@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block rightside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock rightside %}
+
+{% block leftside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock leftside %}
+
+
+{% block middleside %}
+{% from "includes/formhelpers.html" import render_field %}
+<form method = "POST" enctype="multipart/form-data">
+
+{{ render_field(form.description,class = "form-control") }}
+<input type="file" name="pic"/>
+<button type="submit">Faturayı Yükle!</button>
+
+</form>
+{% endblock middleside %}

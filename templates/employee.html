@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block rightside %}
+<div
+  class="bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock rightside %}
+
+{% block leftside %}
+<div
+  class="col-md-16 bg-image rounded"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  "
+></div>
+{% endblock leftside %}
+
+
+{% block middleside %}
+
+
+
+<body>
+    <div class="container main-secction">
+        <div class="row">
+            
+            <div class="row user-left-part">
+                <div class="col-md-4 col-sm-3 col-xs-12 user-profil-part pull-left">
+                    <div class="row ">
+                        <div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center">
+                            <img style='display:block; width:250px;height:250px;' src="data:image/png;charset=utf-8;base64,{{rimg}}"  class="rounded-circle">
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
+                            <br>
+                            {% if worker["role"] == "Yönetici" %}
+                            
+                            {% else %}
+                            <a href="/deleteemployee/{{worker.id}}"><button class="btn btn-danger btn-block">Çalışanı Sil</button></a> 
+                             
+                            {% endif %}
+                                                          
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-9 col-xs-12 pull-right profile-right-section">
+                    <div class="row profile-right-section-row">
+                        <div class="col-md-12 profile-header">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
+                                    <h1>{{worker.name}}</h1>
+                                    <h5>{{worker.role}}</h5>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-8">
+                                        <hr>
+                                              
+                                              <!-- Tab panes -->
+                                              <div class="tab-content">
+                                                <div role="tabpanel" class="tab-pane fade show active" id="profile">
+                                                        <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>İsim Soyisim :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{worker.name}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Kullanıcı Adı :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{worker.username}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Email :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{worker.email}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Departman :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{worker.role}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Şirket :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{worker.company}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label>Telefon :</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <p>{{worker.phonenumber}}</p>
+                                                                </div>
+                                                            </div>
+                                                </div>
+                                                
+                                                
+                                              
+                          
+                                
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock middleside %}
